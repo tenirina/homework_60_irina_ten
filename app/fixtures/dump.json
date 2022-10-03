@@ -1,0 +1,148 @@
+[
+{
+  "model": "webapp.product",
+  "pk": 1,
+  "fields": {
+    "title": "Grapes",
+    "description": "Grapes description ",
+    "photo": "https://images.emojiterra.com/google/noto-emoji/v2.034/128px/1f347.png",
+    "category": "fruits",
+    "balance": 5,
+    "price": "150.00",
+    "created_at": "2022-10-03T00:00:00Z",
+    "updated_at": null,
+    "is_delete": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 2,
+  "fields": {
+    "title": "Watermelon",
+    "description": "Watermelon description ",
+    "photo": "https://images.emojiterra.com/google/noto-emoji/v2.034/128px/1f349.png",
+    "category": "fruits",
+    "balance": 10,
+    "price": "120.00",
+    "created_at": "2022-10-03T00:00:00Z",
+    "updated_at": null,
+    "is_delete": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 3,
+  "fields": {
+    "title": "Strawberry",
+    "description": "Strawberry description ",
+    "photo": "https://images.emojiterra.com/google/noto-emoji/v2.034/128px/1f353.png",
+    "category": "fruits",
+    "balance": 25,
+    "price": "350.00",
+    "created_at": "2022-10-03T00:00:00Z",
+    "updated_at": null,
+    "is_delete": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 4,
+  "fields": {
+    "title": "Potato",
+    "description": "Potato description ",
+    "photo": "https://images.emojiterra.com/google/noto-emoji/v2.034/128px/1f954.png",
+    "category": "vegetables",
+    "balance": 150,
+    "price": "25.00",
+    "created_at": "2022-10-03T00:00:00Z",
+    "updated_at": null,
+    "is_delete": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 5,
+  "fields": {
+    "title": "Mushroom",
+    "description": "Mushroom description ",
+    "photo": "https://images.emojiterra.com/google/noto-emoji/v2.034/128px/1f344.png",
+    "category": "vegetables",
+    "balance": 205,
+    "price": "45.00",
+    "created_at": "2022-10-03T00:00:00Z",
+    "updated_at": null,
+    "is_delete": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 6,
+  "fields": {
+    "title": "Hamburger",
+    "description": "Hamburger description ",
+    "photo": "https://images.emojiterra.com/google/noto-emoji/v2.034/128px/1f354.png",
+    "category": "prepared",
+    "balance": 50,
+    "price": "84.00",
+    "created_at": "2022-10-03T00:00:00Z",
+    "updated_at": null,
+    "is_delete": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 7,
+  "fields": {
+    "title": "Green Salad",
+    "description": "Green Salad description ",
+    "photo": "https://images.emojiterra.com/google/noto-emoji/v2.034/128px/1f957.png",
+    "category": "prepared",
+    "balance": 31,
+    "price": "50.00",
+    "created_at": "2022-10-03T00:00:00Z",
+    "updated_at": null,
+    "is_delete": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 8,
+  "fields": {
+    "title": "Fortune Cookie",
+    "description": "Fortune Cookie description ",
+    "photo": "https://images.emojiterra.com/google/noto-emoji/v2.034/128px/1f960.png",
+    "category": "other",
+    "balance": 4,
+    "price": "21.00",
+    "created_at": "2022-10-03T00:00:00Z",
+    "updated_at": null,
+    "is_delete": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$qSVIMQavH9Rgbnpep9xmT2$lpvzgg+DC9AuWYWtJO3dfxbPX9N7txXLFBmKeQ6AmLM=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "root",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-09-30T15:13:36.378Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
