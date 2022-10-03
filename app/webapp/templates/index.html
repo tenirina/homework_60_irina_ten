@@ -1,13 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <br>
     <div>
         {% if products %}
             <h2>Shop online</h2>
+            <form class="d-flex justify-content-end" action="{% url 'index' %}" method="GET">
+                <div class="d-flex align-items-end">
+                    <input class="form-control" type="search" name="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-secondary" type="submit">Search</button>
+                </div>
+            </form>
+            <br>
             <div class="row">
             {% for prod in products %}
                 <div class="col-sm-6">
-                   <div class="card border-secondary mb-3" style="max-width: 540px;">
+                   <div class="card border-secondary mb-3">
                        <div class="row g-0">
                             <div class="col-md-4">
                               <img src="{{prod.photo}}" class="img-fluid rounded-start" alt="prod">
