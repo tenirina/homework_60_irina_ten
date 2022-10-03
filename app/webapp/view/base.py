@@ -21,5 +21,3 @@ def index_view(request):
     return render(request, 'index.html', context)
 
 
-def product_view(request, pk):
-    pass

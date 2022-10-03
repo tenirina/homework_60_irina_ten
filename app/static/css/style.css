@@ -2,3 +2,7 @@ a{
     text-decoration: none;
     color: #384046f2;
 }
+.card-img-top{
+    width: 20%;
+    height: auto;
+}
