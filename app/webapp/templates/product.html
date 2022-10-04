@@ -11,7 +11,7 @@
         <p class="card-text"><strong>Balance:</strong> {{product.balance}}</p>
         <p class="card-text"><strong>Price:</strong> {{product.price}} $</p>
         <p class="card-text"><strong>Date of created:</strong> {{product.created_at}}</p>
-        <a href="#" class="btn btn-secondary">Edit product</a>
+        <a href="{% url 'edit' product.pk %}" class="btn btn-secondary">Edit product</a>
         <a href="#" class="btn btn-secondary">Delete product</a>
       </div>
     </div>
