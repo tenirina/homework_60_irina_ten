@@ -16,8 +16,31 @@ def index_view(request):
     for el in products:
         el.category = el.get_category_display()
     context = {
-        'products': products
+        'products': products,
+        'choices': Product.CHOICES
     }
     return render(request, 'index.html', context)
 
+
+def choice_category_view(request, category):
+    form = SearchForm(request.GET)
+    if 'search' in form.data:
+        if form.data['search']:
+            products = Product.objects.filter(is_delete=False, category=category, title__icontains=form.data['search']).order_by('title')
+        else:
+            products = Product.objects.filter(is_delete=False, category=category).order_by('title')
+    else:
+        products = Product.objects.filter(is_delete=False, category=category).order_by('title')
+    for el in products:
+        el.category = el.get_category_display()
+    for el in Product.CHOICES:
+        if el[0] == category:
+            category = el[1]
+            break
+    context = {
+        'products': products,
+        'category': category,
+        'choices': Product.CHOICES
+    }
+    return render(request, 'category.html', context)
 

@@ -16,6 +16,9 @@
           <div class="navbar-nav">
             <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
             <a class="nav-link active" aria-current="page" href="{% url 'create' %}">Create product</a>
+             {% for el in choices %}
+                <a class="nav-link active" aria-current="page" href="{% url 'choice_category' el.0 %}">{{el.1}}</a>
+              {% endfor %}
             {% block navbar%}{% endblock %}
           </div>
         </div>

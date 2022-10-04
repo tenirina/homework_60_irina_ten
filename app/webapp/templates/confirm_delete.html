@@ -8,8 +8,11 @@
                 {{ product.title }}
               </div>
               <div class="card-body">
-                <h5 class="card-title">{{ product.balance }}</h5>
-                <p class="card-text">{{ product.price }}</p>
+                <p class="card-text"><strong>Description:</strong> {{product.description}}</p>
+                <p class="card-text"><strong>Category:</strong> {{product.category}}</p>
+                <p class="card-text"><strong>Balance:</strong> {{product.balance}}</p>
+                <p class="card-text"><strong>Price:</strong> {{product.price}} $</p>
+                <p class="card-text"><strong>Date of created:</strong> {{product.created_at}}</p>
                 <form action="{% url 'confirm_delete' product.pk %}" method="POST">
                     {% csrf_token %}
                     <input type="submit" class="btn btn-secondary" value="Delete">

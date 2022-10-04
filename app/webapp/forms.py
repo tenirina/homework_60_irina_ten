@@ -13,3 +13,4 @@ class ProductForm(forms.Form):
     category = forms.CharField(max_length=100, required=True, label="Category")
     balance = forms.IntegerField(required=True, label="Balance", min_value=0)
     price = forms.DecimalField(max_digits=9, decimal_places=2, required=True, label="Price")
+

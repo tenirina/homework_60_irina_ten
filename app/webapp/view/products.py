@@ -84,3 +84,4 @@ def confirm_delete_view(request, pk):
     product = get_object_or_404(Product, pk=pk)
     product.delete()
     return redirect("index")
+
