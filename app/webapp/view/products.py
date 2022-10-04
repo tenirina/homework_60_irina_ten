@@ -53,6 +53,7 @@ def edit_view(request, pk):
         errors = errors_test(form)
         if errors:
             product = {
+                'pk': product.pk,
                 'title': form.data['title'],
                 'description': form.data['description'],
                 'photo': form.data['photo'],
@@ -60,7 +61,7 @@ def edit_view(request, pk):
                 'balance': form.data['balance'],
                 'price': form.data['price']
             }
-            return render(request, 'create.html',
+            return render(request, 'edit.html',
                           context={'product': product, 'errors': errors, 'choices': Product.CHOICES})
         if form.is_valid():
             product.title = form.cleaned_data['title']
@@ -73,3 +74,13 @@ def edit_view(request, pk):
             return redirect('index')
     return render(request, 'edit.html', context={'product': product, 'form': form, 'choices': Product.CHOICES})
 
+
+def delete_view(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    return render(request, "confirm_delete.html", context={'product': product})
+
+
+def confirm_delete_view(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    product.delete()
+    return redirect("index")
