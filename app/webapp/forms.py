@@ -9,7 +9,7 @@ class SearchForm(forms.Form):
 class ProductForm(forms.Form):
     title = forms.CharField(max_length=100, required=True, label="Title")
     description = forms.CharField(max_length=2000, required=False, label="Description",  widget=widgets.Textarea)
-    photo = forms.CharField(max_length=200, required=True, label="Photo")
+    photo = forms.CharField(max_length=200, required=False, label="Photo")
     category = forms.CharField(max_length=100, required=True, label="Category")
-    balance = forms.IntegerField(required=True, label="Balance")
+    balance = forms.IntegerField(required=True, label="Balance", min_value=0)
     price = forms.DecimalField(max_digits=9, decimal_places=2, required=True, label="Price")

@@ -6,3 +6,8 @@ a{
     width: 20%;
     height: auto;
 }
+.errors{
+    color: red;
+    font-size: 12px;
+    margin: 5px 0 0 0
+}
