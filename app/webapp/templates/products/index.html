@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <br>
+    <div>
+        <h2>Shop online</h2>
+        {% include 'partial/list_products_form.html'%}
+        {% if is_paginated %}
+            {% include 'partial/pagination.html' %}
+        {% endif %}
+    </div>
+{% endblock %}
