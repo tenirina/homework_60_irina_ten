@@ -1,16 +1,15 @@
 from django.db import models
-from django.db.models import TextChoices
+
 from django.utils import timezone
 
 
-class CategoryChoices(TextChoices):
-    OTHER = "other", "Other"
-    FRUITS = "fruits", "Fruits"
-    VEGETABLES = "vegetables", "Vegetables"
-    PREPARED = "prepared", "Prepared food"
-
-
 class Product(models.Model):
+
+    class CategoryChoices(models.TextChoices):
+        OTHER = "other", "Other"
+        FRUITS = "fruits", "Fruits"
+        VEGETABLES = "vegetables", "Vegetables"
+        PREPARED = "prepared", "Prepared food"
 
     title = models.CharField(verbose_name="Title", max_length=100, null=False, blank=False)
     description = models.TextField(verbose_name="Description", max_length=2000, null=True, blank=False)

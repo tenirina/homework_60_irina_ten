@@ -1,69 +1,10 @@
 {% csrf_token %}
- <div class="col-4">
-    <div class="row g-2 align-items-start">
-        <label for="title" class="form-label">Title</label>
-        {% if errors.title %}
-            <input name="title" value="{{product.title}}" type="text" class="form-control" id="title">
-            <p class="errors">{{errors.title}}</p>
-        {% else %}
-            <input name="title" value="{{product.title}}" type="text" class="form-control">
-        {% endif %}
-    </div>
- </div>
-<br>
-<div class="col-4">
-    <div class="row g-2 align-items-start">
-        <label for="description" class="form-label">Description</label>
-        <textarea id="description" name="description" class="form-control">{{product.description}}</textarea>
-    </div>
- </div>
-<br>
-<div class="col-4">
-    <div class="row g-2 align-items-start">
-       <label for="category" class="form-label">Category</label>
-       <select class="form-select" id="category" name="category">
-           {% for el in choices%}
-                {% if todo.status == el.0 %}
-                    <option value={{el.0}} selected>{{el.1}}</option>
-                {% else %}
-                    <option value={{el.0}}>{{el.1}}</option>
-               {% endif %}
-           {% endfor %}
-       </select>
-    </div>
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+
+<div class="container">
+    {% bootstrap_form form %}
+    {% bootstrap_button button_type="submit" button_class="btn-secondary" content=button_text %}
 </div>
-<br>
-<div class="col-4">
-    <div class="row g-2 align-items-start">
-        <label for="photo" class="form-label">Photo</label>
-        <input name="photo" value="{{product.photo}}" type="text" class="form-control" id="photo">
-    </div>
-</div>
-<br>
-<div class="col-4">
-    <div class="row g-2 align-items-start">
-        <label for="balance" class="form-label">Balance</label>
-        {% if errors.balance %}
-            <input name="balance" value="{{product.balance}}" type="number" class="form-control" id="balance">
-            <p class="errors">{{errors.balance}}</p>
-        {% else %}
-            <input name="balance" value="{{product.balance}}" type="number" class="form-control">
-        {% endif %}
-    </div>
- </div>
-<br>
-  <div class="col-4">
-    <div class="row g-2 align-items-start">
-        <label for="price" class="form-label">Price</label>
-        {% if errors.price %}
-            <input name="price" value="{{product.price}}" type="text" class="form-control" id="price">
-            <p class="errors">{{errors.price}}</p>
-        {% else %}
-            <input name="price" value="{{product.price}}" type="text" class="form-control">
-        {% endif %}
-    </div>
- </div>
-<br>
-    <div class="col-3">
-        <button type="submit" class="btn btn-secondary">{{button_text}}</button>
-    </div>
