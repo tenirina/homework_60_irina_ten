@@ -1,0 +1,37 @@
+{% load multiply_add %}
+{% extends 'base.html' %}
+
+{% block title %}
+    Create product
+{% endblock %}
+
+{% block content %}
+   <h1>Basket</h1>
+    {%with count=0 %}
+     <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Product</th>
+          <th scope="col">Count</th>
+          <th scope="col">Price</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for el in products %}
+          <tr>
+              <th scope="row">{{ el.pk }}</th>
+              <td>{{ el.product.title }}</td>
+              <td>{{ el.count }}</td>
+              <td>{{ el.product.price }}</td>
+              <td>{% widthratio el.product.price 1 el.count %}</td>
+              <td>{{ el.product.price|add:el.count }}</td>
+          </tr>
+          {% multiply_add count el.product.price el.count %}
+          {% endfor %}
+      </tbody>
+    </table>
+    {{count}}
+    {%endwith%}
+{% endblock %}

@@ -27,3 +27,7 @@ class ProductForm(forms.ModelForm):
         fields = ('title', 'description', 'photo', 'category', 'balance', 'price')
 
 
+class BasketForm(forms.ModelForm):
+
+    class Meta:
+        fields = ('product', 'count')

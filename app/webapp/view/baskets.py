@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic import ListView
 
 from webapp.models import Product, Basket
 
@@ -19,3 +20,9 @@ def add_basket_view(request, pk):
             basket_product.save()
     print(Basket.objects.filter(product=product.pk))
     return redirect('index')
+
+
+class BasketView(ListView):
+    template_name = "basket.html"
+    model = Basket
+    context_object_name = "products"
