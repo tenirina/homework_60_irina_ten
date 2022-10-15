@@ -19,6 +19,7 @@
              {% for el in choices %}
                 <a class="nav-link active" aria-current="page" href="{% url 'choice_category' el.0 %}">{{el.1}}</a>
               {% endfor %}
+              <a class="nav-link active" aria-current="page" href="{% url 'create' %}">Basket</a>
             {% block navbar%}{% endblock %}
           </div>
         </div>

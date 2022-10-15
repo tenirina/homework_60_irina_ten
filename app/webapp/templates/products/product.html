@@ -13,6 +13,7 @@
         <p class="card-text"><strong>Date of created:</strong> {{product.created_at}}</p>
         <a href="{% url 'edit' product.pk %}" class="btn btn-secondary">Edit product</a>
         <a href="{% url 'delete' product.pk %}" class="btn btn-secondary">Delete product</a>
+        <a href="{% url 'add_basket' product.pk %}" class="btn btn-secondary">Add basket</a>
       </div>
     </div>
 {% endblock %}

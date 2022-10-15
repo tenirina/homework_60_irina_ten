@@ -13,6 +13,7 @@
                     <p class="card-text"><small class="text-muted">{{ prod.category }}</small></p>
                     <a href="{% url 'edit' prod.pk %}" class="btn btn-secondary">Edit product</a>
                     <a href="{% url 'delete' prod.pk %}" class="btn btn-secondary">Delete product</a>
+                    <a href="{% url 'add_basket' prod.pk %}" class="btn btn-secondary">Add basket</a>
                   </div>
                 </div>
           </div>

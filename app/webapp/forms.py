@@ -1,6 +1,5 @@
 from django import forms
 from django.core.exceptions import ValidationError
-from django.db.models.query import QuerySet
 from django.forms import widgets
 
 from webapp.models import Product
