@@ -12,7 +12,7 @@ class IndexView(ListView):
     context_object_name = "products"
     paginate_by = 6
     paginate_orphans = 2
-    queryset = Product.objects.exclude(is_delete=True)
+    queryset = Product.objects.filter(is_delete=False, balance__gte=1).order_by("category", "title")
 
     def get(self, request, *args, **kwargs):
         self.form = self.get_search_form()
