@@ -14,7 +14,7 @@ def add_basket_view(request, pk):
         }
         Basket.objects.create(**data)
     elif len(basket_product) != 0:
-        if basket_product[0].count < product.balance:
+          if basket_product[0].count < product.balance:
             basket_product = get_object_or_404(Basket, pk=basket_product[0].pk)
             basket_product.count += 1
             basket_product.save()
@@ -26,3 +26,24 @@ class BasketView(ListView):
     template_name = "basket.html"
     model = Basket
     context_object_name = "products"
+    extra_context = {
+        "total": 512,
+        "value": "Bnjuj"
+    }
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(object_list=object_list, **kwargs)
+        total_count = 0
+        total = 0
+        for el in Basket.objects.all():
+            total += el.product.price*el.count
+            total_count += el.count
+        context['total'] = total
+        context['total_count'] = total_count
+        return context
+
+
+
+
+
+

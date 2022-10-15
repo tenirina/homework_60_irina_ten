@@ -1,4 +1,4 @@
-{% load multiply_add %}
+
 {% extends 'base.html' %}
 
 {% block title %}
@@ -26,12 +26,16 @@
               <td>{{ el.count }}</td>
               <td>{{ el.product.price }}</td>
               <td>{% widthratio el.product.price 1 el.count %}</td>
-              <td>{{ el.product.price|add:el.count }}</td>
           </tr>
-          {% multiply_add count el.product.price el.count %}
           {% endfor %}
+          <tr>
+              <th ></th>
+              <td > <strong>Total</strong> </td>
+              <td><strong>{{ total_count }}</strong></td>
+              <td></td>
+              <td><strong>{{ total }}</strong></td>
+          </tr>
       </tbody>
     </table>
-    {{count}}
     {%endwith%}
 {% endblock %}
