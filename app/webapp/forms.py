@@ -13,7 +13,7 @@ def max_length_validator(string):
 
 
 class SearchForm(forms.Form):
-    search = forms.CharField(max_length=100, required=False, label="Search", initial="")
+    search_value = forms.CharField(required=False, label='Search', max_length=100)
 
 
 class ProductForm(forms.ModelForm):

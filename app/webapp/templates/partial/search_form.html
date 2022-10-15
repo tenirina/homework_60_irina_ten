@@ -1,6 +1,8 @@
-<form class="d-flex justify-content-end" action="{% url 'index' %}" method="GET">
-    <div class="d-flex align-items-end">
-        <input class="form-control" type="search" name="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-secondary" type="submit">Search</button>
-    </div>
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+<form action="">
+    {% bootstrap_form form %}
+    {% bootstrap_button button_type="submit" button_class="btn-secondary" content='Search' %}
 </form>
