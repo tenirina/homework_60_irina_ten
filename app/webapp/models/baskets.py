@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class Basket(models.Model):
@@ -6,5 +7,6 @@ class Basket(models.Model):
     count = models.IntegerField(verbose_name="Count", null=False, blank=False)
     created_at = models.DateTimeField(verbose_name="Date of create", auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name="Date of create", auto_now=True, null=True)
-    is_delete = models.BooleanField(verbose_name="Delete", default=False, null=False)
-    deleted_at = models.DateTimeField(verbose_name="Date of delete", null=True, default=None)
+
+
+

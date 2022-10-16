@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import ListView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DeleteView
 
 from webapp.models import Product, Basket
 
@@ -26,10 +27,6 @@ class BasketView(ListView):
     template_name = "basket.html"
     model = Basket
     context_object_name = "products"
-    extra_context = {
-        "total": 512,
-        "value": "Bnjuj"
-    }
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(object_list=object_list, **kwargs)
@@ -43,7 +40,13 @@ class BasketView(ListView):
         return context
 
 
-
-
+def delete_basket_view(request, pk):
+    obj = get_object_or_404(Basket, pk=pk)
+    if obj.count <= 1:
+        obj.delete()
+    else:
+        obj.count -= 1
+        obj.save()
+    return redirect('basket')
 
 

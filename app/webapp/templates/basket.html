@@ -26,6 +26,8 @@
               <td>{{ el.count }}</td>
               <td>{{ el.product.price }}</td>
               <td>{% widthratio el.product.price 1 el.count %}</td>
+              <td><a href="{% url 'basket_delete' el.pk %}" class="btn btn-secondary">delete</a></td>
+              <td>{{ el.pk }}</td>
           </tr>
           {% endfor %}
           <tr>
