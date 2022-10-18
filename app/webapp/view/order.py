@@ -23,8 +23,8 @@ class OrderCreateView(CreateView):
                     prod.balance = total
                     prod.save()
             product = Product.objects.get(pk=el.pk)
-            ProductOrder.objects.create(product_id=product.pk, order_id=order.pk, count=el.count)
 
+            order.products.add(product)
             form.save_m2m()
             print(ProductOrder)
         order_prod.delete()
