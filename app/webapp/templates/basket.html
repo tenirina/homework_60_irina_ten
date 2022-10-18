@@ -1,13 +1,11 @@
-
 {% extends 'base.html' %}
 
 {% block title %}
-    Create product
+    Create order
 {% endblock %}
 
 {% block content %}
    <h1>Basket</h1>
-    {%with count=0 %}
      <table class="table">
       <thead>
         <tr>
@@ -21,13 +19,12 @@
       <tbody>
           {% for el in products %}
           <tr>
-              <th scope="row">{{ el.pk }}</th>
+              <th scope="row"></th>
               <td>{{ el.product.title }}</td>
               <td>{{ el.count }}</td>
               <td>{{ el.product.price }}</td>
               <td>{% widthratio el.product.price 1 el.count %}</td>
               <td><a href="{% url 'basket_delete' el.pk %}" class="btn btn-secondary">delete</a></td>
-              <td>{{ el.pk }}</td>
           </tr>
           {% endfor %}
           <tr>
@@ -39,5 +36,9 @@
           </tr>
       </tbody>
     </table>
-    {%endwith%}
+    <form action="{% url 'order_create' %}" method="POST">
+         <div class="container">
+             {% include 'partial/order_form.html' with button_text='Create order' %}
+         </div>
+     </form>
 {% endblock %}

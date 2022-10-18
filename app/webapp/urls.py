@@ -1,7 +1,8 @@
 from django.urls import path
 
 from webapp.view.base import IndexView
-from webapp.view.baskets import add_basket_view, BasketView, delete_basket_view
+from webapp.view.baskets import add_basket_view, BasketView, BasketDeleteView
+from webapp.view.order import OrderCreateView, OrderProductCreateView
 from webapp.view.products import ProductCreateView, ProductUpdateView, ProductView, ProductDeleteView
 
 urlpatterns = [
@@ -13,5 +14,7 @@ urlpatterns = [
     path("product/<int:pk>/delete", ProductDeleteView.as_view(), name='delete'),
     path("products/basket/add/<int:pk>", add_basket_view, name='add_basket'),
     path("products/basket", BasketView.as_view(), name='basket'),
-    path("products/basket/delete/<int:pk>", delete_basket_view, name='basket_delete')
+    path("products/basket/delete/<int:pk>", BasketDeleteView.as_view(), name='basket_delete'),
+    path("products/basket/order", OrderCreateView.as_view(), name='order_create'),
+    path("products/order/<int:pk>", OrderProductCreateView.as_view(), name='order_product_create')
 ]

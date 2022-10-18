@@ -2,12 +2,12 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.forms import widgets
 
-from webapp.models import Product
+from webapp.models import Product, Order, ProductOrder
 
 
 def max_length_validator(string):
-    if len(string) < 4:
-        raise ValidationError("The number of characters must be more than 3!")
+    if len(string) < 3:
+        raise ValidationError("The number of characters must be more than 2!")
     return string
 
 
@@ -31,3 +31,20 @@ class BasketForm(forms.ModelForm):
 
     class Meta:
         fields = ('product', 'count')
+
+
+class OrderForm(forms.ModelForm):
+    user_name = forms.CharField(max_length=50, required=True, label="User name", validators=(max_length_validator,))
+    address = forms.CharField(max_length=100, required=True, label="Address", validators=(max_length_validator,))
+    phone = forms.CharField(max_length=15, required=True, label="Phone")
+
+    class Meta:
+        model = Order
+        fields = ('user_name', 'address', 'phone')
+
+
+class ProductOrderForm(forms.ModelForm):
+
+    class Meta:
+        model = ProductOrder
+        fields = ('product', 'order', 'count')
