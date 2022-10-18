@@ -28,6 +28,7 @@ class ProductForm(forms.ModelForm):
 
 
 class BasketForm(forms.ModelForm):
+    count = forms.IntegerField(required=True, label="Count")
 
     class Meta:
         model = Basket

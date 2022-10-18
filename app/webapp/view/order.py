@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.views.generic import CreateView, DetailView, TemplateView
 
 from webapp.forms import OrderForm, ProductOrderForm
-from webapp.models import Order, Basket, ProductOrder
+from webapp.models import Order, Basket, ProductOrder, Product
 
 
 class OrderCreateView(CreateView):
@@ -11,33 +11,24 @@ class OrderCreateView(CreateView):
     form_class = OrderForm
     model = Order
 
-    def get_success_url(self):
-        return reverse('order_product_create', kwargs={'pk': self.object.pk})
-
-
-class OrderProductCreateView(CreateView):
-    model = ProductOrder
-    form_class = ProductOrderForm
-    template_name = "products/index.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        print("I'm here gggg")
-        print(kwargs)
-        return context
-
     def form_valid(self, form):
-        order = get_object_or_404(Order, pk=self.kwargs.get('pk'))
-        print(order)
-        product = form.save(commit=False)
-        product.order = order
-        print('jdjjdjj')
-        print(product.order)
-        return redirect('products/index')
+        order_prod = Basket.objects.all()
+        products_count = Product.objects.exclude(is_delete=True)
+        for el in order_prod:
+            for prod in products_count:
+                if el.product == prod:
+                    total = prod.balance - el.count
+                    prod.balance = total
+                    prod.save()
+            product = prod.pk
+            order = form.save(commit=False)
+            order.product = product
+            order.save()
+            print(order)
+        order_prod.delete()
+        return redirect('index')
 
-    def form_invalid(self, form):
-        print("I'm here")
-        return redirect('products/index.html')
-
-    def get_redirect_url(self):
+    def get_success_url(self):
         return reverse('index')
+
+

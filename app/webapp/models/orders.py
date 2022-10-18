@@ -9,3 +9,4 @@ class Order(models.Model):
     updated_at = models.DateTimeField(verbose_name="Date of create", auto_now=True, null=True)
     is_delete = models.BooleanField(verbose_name="Delete", default=False, null=False)
     deleted_at = models.DateTimeField(verbose_name="Date of delete", null=True, default=None)
+

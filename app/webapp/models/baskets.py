@@ -15,3 +15,4 @@ class Basket(models.Model):
         self.count -= 1
         self.save()
         return None
+
