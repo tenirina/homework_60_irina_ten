@@ -19,7 +19,7 @@
       <tbody>
           {% for el in products %}
           <tr>
-              <th scope="row"></th>
+              <th scope="row">{{ forloop.counter }}</th>
               <td>{{ el.product.title }}</td>
               <td>{{ el.count }}</td>
               <td>{{ el.product.price }}</td>

@@ -2,7 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.forms import widgets
 
-from webapp.models import Product, Order, ProductOrder
+from webapp.models import Product, Order, ProductOrder, Basket
 
 
 def max_length_validator(string):
@@ -30,6 +30,7 @@ class ProductForm(forms.ModelForm):
 class BasketForm(forms.ModelForm):
 
     class Meta:
+        model = Basket
         fields = ('product', 'count')
 
 

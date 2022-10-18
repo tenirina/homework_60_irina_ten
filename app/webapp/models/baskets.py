@@ -7,14 +7,11 @@ class Basket(models.Model):
     count = models.IntegerField(verbose_name="Count", null=False, blank=False)
     created_at = models.DateTimeField(verbose_name="Date of create", auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name="Date of create", auto_now=True, null=True)
-    is_delete = models.BooleanField(verbose_name="Delete", default=False, null=False)
-    deleted_at = models.DateTimeField(verbose_name="Date of delete", null=True, default=None)
 
     def delete(self):
         if self.count <= 1:
-            self.deleted_at = timezone.now()
-            self.is_delete = True
-            self.save()
-        else:
-            self.count -= 1
-            self.save()
+            self.delete()
+            return None
+        self.count -= 1
+        self.save()
+        return None
