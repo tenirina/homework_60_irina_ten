@@ -12,7 +12,8 @@ class Basket(models.Model):
         if self.count <= 1:
             self.delete()
             return None
-        self.count -= 1
-        self.save()
-        return None
+        else:
+            self.count -= 1
+            self.save()
+            return None
 

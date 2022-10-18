@@ -8,8 +8,9 @@
                 </div>
                 <div class="col-md-8">
                   <div class="card-body text-secondary">
-                      <a class="a_title" href="{% url 'product' prod.pk %}"><h5 class="card-title">{{ prod.title }}</h5></a>
-                    <p class="card-text">{{ prod.price }}</p>
+                    <h5><a class="a_title" href="{% url 'product' prod.pk %}"><h5 class="card-title">{{ prod.title }}</h5></a>
+                    <p class="card-text">Price: {{ prod.price }}</p>
+                    <p class="card-text">Balance: {{ prod.balance }}</p>
                     <p class="card-text"><small class="text-muted">{{ prod.category }}</small></p>
                     <a href="{% url 'edit' prod.pk %}" class="btn btn-secondary">Edit product</a>
                     <a href="{% url 'delete' prod.pk %}" class="btn btn-secondary">Delete product</a>
